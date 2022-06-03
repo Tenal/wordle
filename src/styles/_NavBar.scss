@@ -1,0 +1,11 @@
+.nav-container {
+    border-bottom: 0.1px solid $incorrect;
+    .title {
+        margin: 0;
+        padding: 10px;
+        font-size: 36px;
+    }
+    .icon {
+        color: $foreground;
+    }
+}

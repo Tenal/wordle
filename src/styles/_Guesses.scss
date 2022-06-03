@@ -1,0 +1,116 @@
+.guesses-container {
+    margin: 2% 0;
+    max-width: 500px;
+    .guess {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+        margin-bottom: 5px;
+        .letter-box {
+            height: 3.2rem;
+            width: 3.2rem;
+            max-height: 62px;
+            min-height: 45px;
+            max-width: 62px;
+            min-width: 45px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            border: 2px solid $incorrect;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        & > .letter-box:nth-child(1) {
+            transition-delay: 0.3s;
+        }
+        & > .letter-box:nth-child(2) {
+            animation-delay: 0.25s;
+            transition-delay: 0.55s;
+        }
+        & > .letter-box:nth-child(3) {
+            animation-delay: 0.5s;
+            transition-delay: 0.8s;
+        }
+        & > .letter-box:nth-child(4) {
+            animation-delay: 0.75s;
+            transition-delay: 1.05s;
+        }
+        & > .letter-box:nth-child(5) {
+            animation-delay: 1s;
+            transition-delay: 1.3s;
+        }
+        .green-box {
+            background-color: $correct;
+            border: 2px solid $correct !important;
+            transition: background-color 0.6s ease forwards;
+            transition: border 0.6s ease forwards;
+            animation: card-flip 0.6s ease forwards;
+        }
+        .yellow-box {
+            background-color: $half-correct;
+            border: 2px solid $half-correct !important;
+            transition: background-color 0.6s ease forwards;
+            transition: border 0.6s ease forwards;
+            animation: card-flip 0.6s ease forwards;
+        }
+        .grey-box {
+            background-color: $incorrect;
+            border: 2px solid $incorrect !important;
+            transition: background-color 0.6s ease forwards;
+            transition: border 0.6s ease forwards;
+            animation: card-flip 0.6s ease forwards;
+        }
+        .black-box {
+            background-color: $background;
+        }
+    }
+}
+
+.message-container {
+    background-color: $foreground;
+    color: $background;
+    padding: 15px 20px;
+    margin: 10px 0;
+    font-weight: bold;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    animation: shake 0.6s ease forwards;
+    p {
+        margin: 0 !important;
+    }
+}
+
+@keyframes card-flip {
+    0% {
+        transform: rotateX(0);
+    }
+    48% {
+        transform: rotateX(90deg);
+    }
+    52% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
